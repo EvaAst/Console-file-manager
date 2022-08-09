@@ -1,5 +1,4 @@
-import os
-import shutil
+import os, shutil
 
 while True:
     print('1. создать папку')
@@ -13,27 +12,22 @@ while True:
     print('9. играть в викторину')
     print('10. мой банковский счет')
     print('11. выход')
-    # создать папку передаем путь
-    choice = input('Выберите пункт меню')
-    if choice == '1':
+
+    choice = input('Выберите пункт меню ')
+
+    if choice == '1': # создать папку передаем путь
         for i in range(10):
             # проверка на существование
-            if not os.path.exists(f'new{i}'):
-                os.mkdir(f'new{i}')
-    # удалить папку
-    elif choice == '2':
-        for i in range(6):
-            os.rmdir(f'new{i}')
-    # Копировать папку   shutil
-    elif choice == '3':
-        # проверка на существование
-        if not os.path.exists(f'new{i}'):
-            shutil.copy('new0.py', 'new0_copy.py')
-    # список файлов и папок
-    elif choice == '4':
+            if not os.path.exists(f'case{i}'):
+                os.mkdir(f'case{i}')
+    elif choice == '2':# удалить папку
+        for i in range(10):
+            os.rmdir(f'case{i}')
+    elif choice == '3':# Копировать папку   shutil
+            shutil.copytree('case1', 'case1_copy')
+    elif choice == '4':# список файлов и папок
         print(os.listdir())
-    # посмотреть только папки
-    elif choice == '5':
+    elif choice == '5':# посмотреть только папки
         list = [f for f in os.listdir() if os.path.isdir(f)]
         print(list)
     # посмотреть только файлы
@@ -49,11 +43,9 @@ while True:
         print('Астапцова Евгения')
     elif choice == '9':
         import viktorina
-
         viktorina
     elif choice == '10':
         import use_functions
-
         use_functions
     elif choice == '11':
         break
